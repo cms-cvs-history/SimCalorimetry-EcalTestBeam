@@ -13,4 +13,7 @@ module ecaldigi = EcalTBDigiProducer
   bool doNoise = true
   bool applyConstantTerm = true
   double ConstantTerm = 0.003
+  untracked string EcalTBInfoLabel = 'SimEcalTBG4Object'
+  bool doReadout = true
+  include "RecoTBCalo/EcalTBTDCReconstructor/data/Ecal2004TBTDCRanges.cff"
 }
