@@ -16,7 +16,7 @@ module ecaldigi = EcalTBDigiProducer
   untracked string EcalTBInfoLabel = 'SimEcalTBG4Object'
   bool doReadout = true
   include "RecoTBCalo/EcalTBTDCReconstructor/data/Ecal2004TBTDCRanges.cff"
-  double tunePhaseShift = -0.5
+  double tunePhaseShift = 0.5
 #  vdouble CorrelatedNoiseMatrix = { 1.00, 0.67, 0.53, 0.44, 0.39, 0.36, 0.38, 0.35, 0.36, 0.32,
 #                                    0.67, 1.00, 0.67, 0.53, 0.44, 0.39, 0.36, 0.38, 0.35, 0.36,
 #                                    0.53, 0.67, 1.00, 0.67, 0.53, 0.44, 0.39, 0.36, 0.38, 0.35,
