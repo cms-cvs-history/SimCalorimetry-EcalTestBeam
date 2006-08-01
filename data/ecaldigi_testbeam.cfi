@@ -1,4 +1,4 @@
-module ecaldigi = EcalTBDigiProducer
+module ecalUnsuppressedDigis = EcalTBDigiProducer
 {
   double simHitToPhotoelectronsBarrel = 2250.
   double simHitToPhotoelectronsEndcap = 1800.
