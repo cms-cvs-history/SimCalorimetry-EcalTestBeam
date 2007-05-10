@@ -2,6 +2,8 @@ include "SimCalorimetry/EcalSimProducers/data/ecalSimParameterMap.cff"
 
 include "SimCalorimetry/EcalSimProducers/data/ecalElectronicsSim.cff"
 
+include "SimCalorimetry/EcalSimProducers/data/ecalNotContainmentSim.cff"
+
 module ecalUnsuppressedDigis = EcalTBDigiProducer
 {
   string EBdigiCollection = ""
@@ -9,6 +11,8 @@ module ecalUnsuppressedDigis = EcalTBDigiProducer
   using ecal_sim_parameter_map 
 
   using ecal_electronics_sim
+
+  using ecal_notCont_sim
 
   untracked string EcalTBInfoLabel = 'SimEcalTBG4Object'
   bool doReadout = true
