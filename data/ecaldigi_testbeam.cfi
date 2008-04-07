@@ -4,6 +4,8 @@ include "SimCalorimetry/EcalSimProducers/data/ecalElectronicsSim.cff"
 
 include "SimCalorimetry/EcalSimProducers/data/ecalNotContainmentSim.cff"
 
+include "RecoTBCalo/EcalTBTDCReconstructor/data/EcalTBSimTDCRanges.cff"
+
 module ecalUnsuppressedDigis = EcalTBDigiProducer
 {
   string EBdigiCollection = ""
@@ -17,7 +19,7 @@ module ecalUnsuppressedDigis = EcalTBDigiProducer
   untracked string EcalTBInfoLabel = 'SimEcalTBG4Object'
   bool doReadout = true
 
-  include "RecoTBCalo/EcalTBTDCReconstructor/data/EcalTBSimTDCRanges.cff"
+  using EcalTBSimTDCRangesBlock
   untracked bool use2004OffsetConvention = false
 
   double tunePhaseShift = 0.5
