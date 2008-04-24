@@ -6,7 +6,7 @@ include "SimCalorimetry/EcalSimProducers/data/ecalNotContainmentSim.cff"
 
 include "RecoTBCalo/EcalTBTDCReconstructor/data/EcalTBSimTDCRanges.cff"
 
-module ecalUnsuppressedDigis = EcalTBDigiProducer
+module simEcalUnsuppressedDigis = EcalTBDigiProducer
 {
   string EBdigiCollection = ""
 
