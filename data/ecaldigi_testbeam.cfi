@@ -9,6 +9,7 @@ include "RecoTBCalo/EcalTBTDCReconstructor/data/EcalTBSimTDCRanges.cff"
 module simEcalUnsuppressedDigis = EcalTBDigiProducer
 {
   string EBdigiCollection = ""
+  string hitsProducer = "g4SimHits"
 
   using ecal_sim_parameter_map 
 
