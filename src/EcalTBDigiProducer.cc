@@ -170,18 +170,34 @@ void EcalTBDigiProducer::produce( edm::Event&            event      ,
 
    // Get input
    edm::Handle<CrossingFrame<PCaloHit> >      crossingFrame;
-   event.getByLabel( "mix", m_barrelHitsName, crossingFrame ) ;
+   MixCollection<PCaloHit>* EBHits ( 0 ) ;
 
-   MixCollection<PCaloHit>* EBHits (
-      new MixCollection<PCaloHit>( crossingFrame.product() ) ) ;
+   try
+   {
+      event.getByLabel( "mix", m_barrelHitsName, crossingFrame ) ;
 
-   const bool isEB ( theBarrelDets.size() != 0 ) ;
+      EBHits = new MixCollection<PCaloHit>( crossingFrame.product() ) ;
+   }
+   catch(...)
+   {
+   }
+   const bool isEB ( 0 != EBHits &&
+		     0 != EBHits->size() ) ;
 
-   event.getByLabel( "mix", m_endcapHitsName, crossingFrame ) ;
-   MixCollection<PCaloHit>* EEHits (
-      new MixCollection<PCaloHit>( crossingFrame.product() ) );
+   MixCollection<PCaloHit>* EEHits ( 0 ) ;
 
-   const bool isEE ( theEndcapDets.size() != 0 ) ;
+   try
+   {
+      event.getByLabel( "mix", m_endcapHitsName, crossingFrame ) ;
+
+      EEHits = new MixCollection<PCaloHit>( crossingFrame.product() ) ;
+   }
+   catch(...)
+   {
+   }
+
+   const bool isEE ( 0 != EEHits &&
+		     0 != EEHits->size() ) ;
 
 //For TB ----------------------------------------  
    std::auto_ptr<EcalTBTDCRawInfo> TDCproduct(new EcalTBTDCRawInfo(1));
