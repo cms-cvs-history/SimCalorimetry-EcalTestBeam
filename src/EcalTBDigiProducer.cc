@@ -14,11 +14,12 @@
 EcalTBDigiProducer::EcalTBDigiProducer( const edm::ParameterSet& params, edm::EDProducer& mixMod ) :
    EcalDigiProducer( params, mixMod )
 {
+   std::string const instance("simEcalUnsuppressedDigis");
    m_EBdigiFinalTag = params.getParameter<std::string>( "EBdigiFinalCollection" ) ;
    m_EBdigiTempTag  = params.getParameter<std::string>( "EBdigiCollection");
 
-   mixMod.produces<EBDigiCollection>( m_EBdigiFinalTag ) ; // after selective readout
-   mixMod.produces<EcalTBTDCRawInfo>() ;
+   mixMod.produces<EBDigiCollection>(instance + m_EBdigiFinalTag) ; // after selective readout
+   mixMod.produces<EcalTBTDCRawInfo>(instance) ;
 
    const bool syncPhase ( params.getParameter<bool>("syncPhase") ) ;
 
@@ -106,8 +107,9 @@ void EcalTBDigiProducer::finalizeEvent( edm::Event& event, const edm::EventSetup
    std::cout<< "===**** EcalTBDigiProducer: number of barrel digis = "
 	    << barrelReadout->size()<<std::endl ;
 
-   event.put( barrelReadout, m_EBdigiFinalTag ) ;
-   event.put( m_TDCproduct ) ;
+   std::string const instance("simEcalUnsuppressedDigis");
+   event.put(barrelReadout, instance + m_EBdigiFinalTag) ;
+   event.put(m_TDCproduct, instance) ;
 
    m_ebDigis.reset(); // release memory
    m_eeDigis.reset(); // release memory
