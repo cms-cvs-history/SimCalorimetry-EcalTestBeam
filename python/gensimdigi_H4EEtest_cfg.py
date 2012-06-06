@@ -144,7 +144,7 @@ process.load("CalibCalorimetry.EcalTrivialCondModules.EcalTrivialCondRetrieverTB
 # Test beam unsuppressed digis
 
 process.load("SimCalorimetry.EcalTestBeam.ecaldigi_testbeam_cfi")
-process.simEcalUnsuppressedDigis.doReadout = False
+process.mix.digitizers.ecal.doReadout = False
 
 # Output
 
