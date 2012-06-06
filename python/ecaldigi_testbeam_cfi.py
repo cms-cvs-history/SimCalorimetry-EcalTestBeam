@@ -8,7 +8,7 @@ from SimCalorimetry.EcalSimProducers.esElectronicsSim_cff import *
 from SimCalorimetry.EcalSimProducers.ecalNotContainmentSim_cff import *
 from SimCalorimetry.EcalSimProducers.ecalCosmicsSim_cff import *
 from RecoTBCalo.EcalTBTDCReconstructor.EcalTBSimTDCRanges_cff import *
-from SimGeneral.MixingModule.mixNoPU_cfi.import *
+from SimGeneral.MixingModule.mixNoPU_cfi import *
 
 simEcalUnsuppressedDigis = cms.EDProducer("EcalTBDigiProducer",
     ecal_digi_parameters,
